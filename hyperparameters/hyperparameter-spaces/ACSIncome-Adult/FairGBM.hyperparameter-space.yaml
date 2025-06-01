@@ -1,34 +1,23 @@
-
-#  Fixed hyperparams for this FairGBM space
-objective:
-    - constrained_cross_entropy
-
-constraint_stepwise_proxy:
-    - cross_entropy
-
-# exclude label column from column indexing when specifying group column
-constraint_group_column:
-    - name:SEX
-
-
-# Fairness constraint parameters
-constraint_type:
-    - fnr
-
-constraint_fnr_threshold:
-    - 0
-
-proxy_margin:
-    - 1
-
-score_threshold:
-    - 0.5
-
-# Search for a good Lagrangian learning rate
-lagrangian_learning_rate:
-    type: int
-    range: [1000, 30000]
-    log: False
-
-init_lagrange_multipliers:
-    - 1, 0, 0
+FairGBM_ASCIncome:
+  classpath: utils.fairlearn.FairlearnClassifier
+  kwargs:
+    objective:
+      value: constrained_cross_entropy
+    constraint_stepwise_proxy:
+      value: cross_entropy
+    constraint_group_column:
+      value: name:SEX
+    constraint_type:
+      value: fnr
+    constraint_fnr_threshold:
+      value: 0
+    proxy_margin:
+      value: 1
+    score_threshold:
+      value: 0.5
+    lagrangian_learning_rate:
+      type: int
+      range: [1000, 30000]
+      log: False
+    init_lagrange_multipliers:
+      value: 1, 0, 0
