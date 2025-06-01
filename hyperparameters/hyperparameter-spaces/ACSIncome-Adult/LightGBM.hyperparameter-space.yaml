@@ -2,20 +2,16 @@ LightGBM_ASCIncome:
   classpath: utils.fairlearn.FairlearnClassifier
   kwargs:
     data:
-      value:
-        - /mnt/home/andre.cruz/fair-boosting/data/Adult-2021/ACSIncome.train.header.csv
+      - /mnt/home/andre.cruz/fair-boosting/data/Adult-2021/ACSIncome.train.header.csv
 
     ignore_column:
-      value:
-        - name:index
+      - name:index
 
     boosting_type:
-      value:
-        - goss
-        # - gbdt
+      - goss
+      # - gbdt
 
-    enable_bundle:
-      value: False
+    enable_bundle: False
 
     n_estimators:
       type: int

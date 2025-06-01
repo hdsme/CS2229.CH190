@@ -8,6 +8,7 @@ for file_name in os.listdir(configs_path):
     m = yaml_regex.match(file_name)
 
     if m:
+        print(f"Loading hyperparameter space from {file_name}")
         file_path = os.path.join(configs_path, file_name)
         hyperparam_spaces[m.group("name")] = load_hyperparameter_space(file_path)
         print(hyperparam_spaces)
