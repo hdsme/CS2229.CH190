@@ -1,6 +1,6 @@
 import re, os
 from utils.fairautoml_tuners_utils import load_hyperparameter_space
-configs_path = '/kaggle/working/assets/hyperparameters'
+configs_path = '/kaggle/working/assets/hyperparameters/hyperparameter-spaces/ACSIncome-Adult'
 yaml_regex = re.compile(r"^(?P<name>.+)[\.]hyperparameter-space.yaml$")
 hyperparam_spaces = dict()
 
