@@ -1,8 +1,13 @@
 import re, os
+from random import Random
 from utils.fairautoml_tuners_utils import load_hyperparameter_space
+from utils.hyperparams import suggest_random_hyperparams_with_classpath
 
 N_RS_TRIALS = 100
-
+SET_TEST_THRESHOLD_ON_VALIDATION = False
+N_THREADS = 2
+SEED = 24
+rng = Random(SEED)
 
 configs_path = '/kaggle/working/assets/hyperparameters/hyperparameter-spaces/ACSIncome-Adult'
 yaml_regex = re.compile(r"^(?P<name>.+)[\.]hyperparameter-space.yaml$")
@@ -17,7 +22,6 @@ for file_name in os.listdir(configs_path):
         hyperparam_spaces[m.group("name")] = load_hyperparameter_space(file_path)
         print(hyperparam_spaces)
 
-from utils.hyperparams import suggest_random_hyperparams_with_classpath
 
 configs = {
     algo_name: [
